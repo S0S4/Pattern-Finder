@@ -63,7 +63,7 @@ char* pattern_create(size_t length) {
   size_t k = 0, j = 0, l = 0;
 
   for (size_t i = 0; i < length; ++i) {
-    size_t index = i * 3;
+    size_t index = i *3 ;
     pattern_string[index] = charset[k];
     pattern_string[index + 1] = charset2[j];
     pattern_string[index + 2] = charset3[l];
@@ -86,7 +86,7 @@ char* pattern_create(size_t length) {
     free(pattern_string);
     return NULL;
   }
-  fwrite(pattern_string, 1, length * 3, fptr);
+  fwrite(pattern_string, 1, length, fptr);
   fclose(fptr);
 
   return pattern_string;
@@ -99,9 +99,10 @@ int main(int argc, char* argv[]) {
   }
 
   if (strcmp(argv[1], "-f") == 0) {
+    size_t length = strtol(argv[2], NULL, 10);
     char* pattern = pattern_create(strtol(argv[2], NULL, 10));
     if (pattern != NULL) {
-      printf("%s", pattern);
+      fwrite(pattern, 1, length, stdout);
       free(pattern);
     }
   } else if (strcmp(argv[1], "-l") == 0) {
