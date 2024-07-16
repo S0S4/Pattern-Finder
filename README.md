@@ -1,6 +1,6 @@
 # Pattern finder
 
-Pattern Finder is a simple program written in C for finding the offset of the return address in a program vulnerable to buffer overflow.
+Pattern Finder is a simple program for finding the offset of the return address in a program vulnerable to buffer overflow.
 
 # Compiling
 
